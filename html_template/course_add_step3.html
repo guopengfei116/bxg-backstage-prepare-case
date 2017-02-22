@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+<body>
+    
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./uploads/avatar.jpg">
+            </div>
+            <h4>布头儿</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="./user_list.html">
+                        <i class="fa fa-bell"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./teacher_list.html">
+                        <i class="fa fa-bell"></i>
+                        讲师管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        课程管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled" style="display: block;">
+                        <li>
+                            <a href="./course_add.html" class="active">
+                                 课程添加
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_list.html">
+                                课程列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_category.html">
+                                课程分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_topic.html">
+                                课程专题
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./advert_list.html">
+                        <i class="fa fa-bell"></i>
+                        广告管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        系统设置
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="javascript:;">
+                                网站设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                 权限管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./settings.html">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>          
+            </div>
+            <div class="body course-add">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">课程管理</a></li>
+                    <li class="active">课程添加</li>
+                </ol>
+                <div class="steps">
+                    <!-- 摘要 -->
+                    <div class="brief">
+                        <div class="thumb">
+                            <img src="./uploads/course_1.jpg" alt="">
+                        </div>
+                        <dl class="info">
+                            <dt>Git 指南</dt>
+                            <dd>讲师：李鹏周</dd>
+                            <dd>课时：32</dd>
+                        </dl>
+                    </div>
+                    <!-- 步聚 -->
+                    <ul class="forwards list-unstyled">
+                        <li>
+                            <a href="./course_add_step1.html" class="done">
+                            <b class="fa fa-check"></b>
+                            基本信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_add_step2.html" class="done">
+                            <b class="fa fa-check"></b>
+                            课程图片
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_add_step3.html" class="active">
+                            <b>3</b>
+                            课时管理
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 课时管理 -->
+                    <div class="content">
+                        <!-- 标题 -->
+                        <div class="title">
+                            <h5>课时管理 <small>LESSON MANAGE</small></h5>
+                            <a src="javascript:;" data-toggle="modal" data-target="#lesson" class="btn btn-success btn-sm pull-right">
+                                <i class="fa fa-plus"></i>
+                                课时
+                            </a>
+                        </div>
+                        <div class="lessons">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fa fa-file-video-o"></i>
+                                    <span class="order">课时：1</span>
+                                    <span class="name">Git工作原理</span>
+                                    <span class="duration">12:06</span>
+                                    <!-- 操作 -->
+                                    <div class="action pull-right">
+                                        <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
+                                        <a href="javascript:;" class="btn btn-info btn-xs">预览</a>
+                                        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa fa-file-video-o"></i>
+                                    <span class="order">课时：2</span>
+                                    <span class="name">Git版本管理</span>
+                                    <span class="duration">16:07</span>
+                                    <!-- 操作 -->
+                                    <div class="action pull-right">
+                                        <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
+                                        <a href="javascript:;" class="btn btn-info btn-xs">预览</a>
+                                        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa fa-file-video-o"></i>
+                                    <span class="order">课时：3</span>
+                                    <span class="name">Git协同开发</span>
+                                    <span class="duration">10:02</span>
+                                    <!-- 操作 -->
+                                    <div class="action pull-right">
+                                        <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
+                                        <a href="javascript:;" class="btn btn-info btn-xs">预览</a>
+                                        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa fa-file-video-o"></i>
+                                    <span class="order">课时：4</span>
+                                    <span class="name">Git共享仓库</span>
+                                    <span class="duration">14:28</span>
+                                    <!-- 操作 -->
+                                    <div class="action pull-right">
+                                        <a href="javascript:;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#lesson">编辑</a>
+                                        <a href="javascript:;" class="btn btn-info btn-xs">预览</a>
+                                        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框 添加课程 -->
+    <div class="modal fade" id="chapterModal">
+        <div class="modal-dialog" style="width: 800px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">添加课时</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="" class="col-xs-2 control-label">标题</label>
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 免费课时
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-2 control-label">简介</label>
+                            <div class="col-xs-8">
+                                <textarea name="" rows="5" class="form-control input-sm"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-2 control-label">视频</label>
+                            <div class="col-xs-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm" placeholder="支持优酷、土豆、腾讯、网易公开课的视频页面地址导入">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success btn-sm">获取</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="" class="col-xs-2 control-label">时长</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control input-sm small">
+                                分
+                                <input type="text" class="form-control input-sm small">
+                                秒
+                                 <p class="help-block">时长必须为整数。</p>
+                            </div>
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="" class="col-xs-2 control-label">建议学习时长</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control input-sm small">
+                                小时
+                                 <p class="help-block">（如未设置，则默认学习时长为视频时长3倍取整。）</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link btn-sm" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-success btn-sm"> 添 加 </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+</html>

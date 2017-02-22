@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+<body>
+    
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./uploads/avatar.jpg">
+            </div>
+            <h4>布头儿</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="./user_list.html">
+                        <i class="fa fa-bell"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./teacher_list.html" class="active">
+                        <i class="fa fa-bell"></i>
+                        讲师管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        课程管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./course_add.html">
+                                 课程添加
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_list.html">
+                                课程列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_category.html">
+                                课程分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_topic.html">
+                                课程专题
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./advert_list.html">
+                        <i class="fa fa-bell"></i>
+                        广告管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        系统设置
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="javascript:;">
+                                网站设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                 权限管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./settings.html">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>          
+            </div>
+            <!-- 讲师列表 -->
+            <div class="body teacher-list">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">讲师管理</a></li>
+                    <li class="active">讲师列表</li>
+                </ol>
+                <div class="page-title">
+                    <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success btn-sm">搜索</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>姓名</th>
+                                <th>昵称</th>
+                                <th>年龄</th>
+                                <th>性别</th>
+                                <th>手机号码</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>赵玉川</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>15901256171</td>
+                                <td>
+                                    <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
+                                    <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 添加课程 -->
+    <div class="modal fade" id="teacherModal">
+        <div class="modal-dialog" style="width: 750px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="panel-title">讲师信息</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>姓名:</th><td>赵玉川</td>
+                                <th>职位:</th><td colspan="3">讲师</td>
+                                <td rowspan="4" width="128">
+                                    <div class="avatar">
+                                        <img src="./images/default.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>花名:</th><td>麻衣长老</td>
+                                <th>出生日期:</th><td colspan="3">2015-11-13</td>
+                            </tr>
+                            <tr>
+                                <th>性别:</th><td>男</td>
+                                <th>出生日期:</th><td colspan="3">1985-05-25</td>
+                            </tr>
+                            <tr>
+                                <th>手机号码:</th><td colspan="2">13051524959</td>
+                                <th>邮箱:</th><td colspan="2">zhaoyuchuan@itcast.cn</td>
+                            </tr>
+                            <tr>
+                                <th>籍贯:</th><td colspan="6">河北省 保定市 曲阳县</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="introduce">
+                                        <p>豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。</p>
+                                        <p>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得仙人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，列冈峦之体势。</p>
+                                        <p>披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰迷津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+</html>

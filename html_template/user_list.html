@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./less/index.css">
+</head>
+<body>
+    
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./uploads/avatar.jpg">
+            </div>
+            <h4>布头儿</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="./user_list.html" class="active">
+                        <i class="fa fa-bell"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="./teacher_list.html">
+                        <i class="fa fa-bell"></i>
+                        讲师管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        课程管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./course_add.html">
+                                 课程添加
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_list.html">
+                                课程列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_category.html">
+                                课程分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_topic.html">
+                                课程专题
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./advert_list.html">
+                        <i class="fa fa-bell"></i>
+                        广告管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        系统设置
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="javascript:;">
+                                网站设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                 权限管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./settings.html">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>          
+            </div>
+            <!-- 客户列表 -->
+            <div class="body">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">用户管理</a></li>
+                    <li class="active">用户列表</li>
+                </ol>
+                <div class="panel panel-default user-list">
+                    <!-- <div class="panel-heading">
+                        <h3 class="panel-title">用户列表</h3>
+                    </div> -->
+                    <div class="panel-body">
+                        <form action="" class="form-inline">
+                            <select name="" class="form-control input-sm">
+                                <option value="">按年龄</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按性别</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按地区</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">按日期</option>
+                            </select>
+                            <button class="btn btn-success btn-sm">筛选</button>
+                            <div class="input-group pull-right">
+                                <input type="text" class="form-control input-sm">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success btn-sm">搜索</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>注册账号</th>
+                                <th>昵称</th>
+                                <th>年龄</th>
+                                <th>性别</th>
+                                <th>地区</th>
+                                <th>手机号码</th>
+                                <th>积分</th>
+                                <th>注册时间</th>
+                                <th>登录时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>botue@sina.com</td>
+                                <td>布头儿</td>
+                                <td>28</td>
+                                <td>男</td>
+                                <td>河北省</td>
+                                <td>15901256171</td>
+                                <td>24</td>
+                                <td>2016/05/01 10:12:32</td>
+                                <td>2016/05/10 12:16:19</td>
+                                <td>
+                                    <a href="./user_profile.html" class="btn btn-info btn-xs">查看</a>
+                                    <a href="javascript::" class="btn btn-warning btn-xs">锁定</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分页 -->
+                <ul class="pagination pull-right">
+                    <li><a href="#">上一页</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">下一页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+</html>
