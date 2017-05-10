@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./less/index.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../less/index.css">
 </head>
 <body>
     
@@ -15,7 +15,7 @@
         <div class="profile">
             <!-- 头像 -->
             <div class="avatar img-circle">
-                <img src="./img/default.png">
+                <img src="../../img/default.png">
             </div>
             <h4>布头儿</h4>
         </div>
@@ -23,19 +23,19 @@
         <div class="navs">
             <ul class="list-unstyled">
                 <li>
-                    <a href="./index.html" class="active">
+                    <a href="../../index.html" class="active">
                         <i class="fa fa-home"></i>
                         仪表盘
                     </a>
                 </li>
                 <li>
-                    <a href="./html/user/list.html">
+                    <a href="../user/list.html">
                         <i class="fa fa-bell"></i>
                         用户管理
                     </a>
                 </li>
                 <li>
-                    <a href="./html/teacher/list.html">
+                    <a href="../teacher/list.html">
                         <i class="fa fa-bell"></i>
                         讲师管理
                     </a>
@@ -48,17 +48,17 @@
                     </a>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./html/course/add.html">
+                            <a href="../course/add.html">
                                  课程添加
                             </a>
                         </li>
                         <li>
-                            <a href="./html/course/list.html">
+                            <a href="../course/list.html">
                                 课程列表
                             </a>
                         </li>
                         <li>
-                            <a href="./html/course/category_list.html">
+                            <a href="../course/category_list.html">
                                 课程分类
                             </a>
                         </li>
@@ -80,7 +80,7 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="./html/home/settings.html">
+                            <a href="../home/settings.html">
                                 <i class="fa fa-user"></i>
                                 个人中心
                             </a>
@@ -94,49 +94,41 @@
                     </ul>
                 </nav>          
             </div>
-            <!-- 个人资料 -->
-            <div class="body teacher-profile">
-                <div class="profile">
-                    <div class="row survey">
-                        <div class="col-xs-3">
-                            <div class="cell money">
-                                <i class="fa fa-money"></i>
-                                <span>我的收入</span>
-                                <h5>￥11.11</h5>
+            <!-- 修改密码 -->
+            <div class="body">
+                <div class="repass">
+                    <form action="" class="form-horizontal col-xs-offset-2">
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">原密码</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control input-sm">
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div class="cell th">
-                                <i class="fa fa-th"></i>
-                                <span>课程数量</span>
-                                <h5>12</h5>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">新密码</label>
+                            <div class="col-xs-4">
+                                <input type="password" class="form-control input-sm">
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div class="cell user">
-                                <i class="fa fa-user"></i>
-                                <span>用户数量</span>
-                                <h5>236</h5>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">确认密码</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control input-sm">
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div class="cell eye">
-                                <i class="fa fa-eye"></i>
-                                <span>浏览量</span>
-                                <h5>22435</h5>
-                            </div>
+                        <div class="form-group">
+                            <div class="col-xs-7">
+                                <input type="submit" class="btn btn-success btn-sm pull-right" value=" 修 改 ">
+                            </div>                          
                         </div>
-                    </div>
-                    <div class="chart">
-                        <div id="main" style="width: 600px;height:400px;"></div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script src="./lib/jquery/jquery.min.js"></script>
-    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/common.js"></script>
+
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../js/common.js"></script>
 </body>
 </html>

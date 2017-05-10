@@ -1,0 +1,1932 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:boxuegu_interface</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">博学谷接口文档</h1>
+<h2 id="-">文档说明</h2>
+<h3 id="-">响应格式</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">code</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">状态码</td>
+</tr>
+<tr>
+<td style="text-align:left">msg</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">状态信息</td>
+</tr>
+<tr>
+<td style="text-align:left">result</td>
+<td style="text-align:left">mixed</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">响应结果</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">状态码</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">状态信息</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">OK</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">401</td>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">未授权</td>
+</tr>
+<tr>
+<td style="text-align:left">403</td>
+<td style="text-align:left">Forbidden</td>
+<td style="text-align:left">没有权限</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">Interernal Server Error</td>
+<td style="text-align:left">服务器内部错误</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">权限管理</h2>
+<h3 id="-">登录</h3>
+<blockquote>
+<p>使用讲师姓名和讲师密码登录（如果讲师状态被禁用无法登录）</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/login">http://api.botue.com/v6/login</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>数据格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">用户名称</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_pass</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">用户密码</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<p>JSON示例</p>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;登录成功!&quot;,
+  &quot;result&quot;: {
+    &quot;tc_name&quot;: &quot;前端学院&quot;,
+    &quot;tc_avatar&quot;: &quot;http://static.botue.com/images/avatar/58613845e749c.jpg&quot;
+  },
+  &quot;time&quot;: 1482213239
+}
+</code></pre>
+<h3 id="-">退出登录</h3>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/logout">http://api.botue.com/v6/logout</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+<li>注意：这个接口返回的code是一个字符串，小心点！！！</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;退出成功&quot;,
+  &quot;time&quot;: 1482385456
+}
+</code></pre>
+<h2 id="-">讲师管理</h2>
+<h3 id="-">添加讲师</h3>
+<blockquote>
+<p>添加讲师，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/add">http://api.botue.com/v6/teacher/add</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">讲师名称</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_pass</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">讲师密码</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_join_date</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">入职时间 yyyy-mm-dd</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_type</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师类型 0 管理员 1 普通</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_gender</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师性别 0 男 1 女</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482385456
+}
+</code></pre>
+<h3 id="-">讲师列表</h3>
+<blockquote>
+<p>查看所有非管理员讲师，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher">http://api.botue.com/v6/teacher</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<p>JSON示例</p>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: [
+    {
+      &quot;tc_id&quot;: 2,
+      &quot;tc_name&quot;: &quot;李清照&quot;,
+      &quot;tc_roster&quot;: &quot;易安居士&quot;,
+      &quot;tc_gender&quot;: 1,
+      &quot;tc_cellphone&quot;: &quot;18500409233&quot;,
+      &quot;tc_email&quot;: &quot;linan@itcast.cn&quot;,
+      &quot;tc_status&quot;: 0,
+      &quot;tc_birthday&quot;: &quot;1991-03-01&quot;,
+      &quot;tc_join_date&quot;: &quot;2015-09-30&quot;
+    },
+    {
+      &quot;tc_id&quot;: 9,
+      &quot;tc_name&quot;: &quot;令狐冲&quot;,
+      &quot;tc_roster&quot;: &quot;攻城狮&quot;,
+      &quot;tc_gender&quot;: 1,
+      &quot;tc_cellphone&quot;: &quot;&quot;,
+      &quot;tc_email&quot;: &quot;&quot;,
+      &quot;tc_status&quot;: 0,
+      &quot;tc_birthday&quot;: &quot;1970-01-01&quot;,
+      &quot;tc_join_date&quot;: &quot;1970-01-01&quot;
+    },
+    {
+      &quot;tc_id&quot;: 12,
+      &quot;tc_name&quot;: &quot;李奎&quot;,
+      &quot;tc_roster&quot;: &quot;黑旋风&quot;,
+      &quot;tc_gender&quot;: 1,
+      &quot;tc_cellphone&quot;: &quot;&quot;,
+      &quot;tc_email&quot;: &quot;&quot;,
+      &quot;tc_status&quot;: 0,
+      &quot;tc_birthday&quot;: &quot;1970-01-01&quot;,
+      &quot;tc_join_date&quot;: &quot;1970-01-01&quot;
+    },
+    {
+      &quot;tc_id&quot;: 16,
+      &quot;tc_name&quot;: &quot;风清杨&quot;,
+      &quot;tc_roster&quot;: &quot;无剑级&quot;,
+      &quot;tc_gender&quot;: 0,
+      &quot;tc_cellphone&quot;: &quot;&quot;,
+      &quot;tc_email&quot;: &quot;&quot;,
+      &quot;tc_status&quot;: 0,
+      &quot;tc_birthday&quot;: &quot;1970-01-01&quot;,
+      &quot;tc_join_date&quot;: &quot;1970-01-01&quot;
+    },
+  ]
+}
+</code></pre>
+<h3 id="-">编辑讲师</h3>
+<blockquote>
+<p>查询讲师信息并编辑，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/edit">http://api.botue.com/v6/teacher/edit</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;tc_id&quot;: 2,
+    &quot;tc_name&quot;: &quot;李清照&quot;,
+    &quot;tc_join_date&quot;: &quot;2015-09-30&quot;,
+    &quot;tc_type&quot;: 1,
+    &quot;tc_gender&quot;: 1
+  },
+  &quot;time&quot;: 1482470649
+}
+</code></pre>
+<h3 id="-">修改讲师</h3>
+<blockquote>
+<p>更新讲师资料，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/update">http://api.botue.com/v6/teacher/update</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">讲师姓名</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_join_date</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">入职日期</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_type</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师类型 0 管理员 1 普通</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_gender</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师性别 0 男 1 女</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482385456
+}
+</code></pre>
+<h3 id="-">更新个人资料</h3>
+<blockquote>
+<p>更新或完善讲师信息</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/modify">http://api.botue.com/v6/teacher/modify</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_roster</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">昵称</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_gender</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">性别 0 男 1 女</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_birthday</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">生日 yyyy-mm-dd</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_province</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">所在省份</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_city</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">所在城市</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_district</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">所在县/区</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_hometown</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">家乡</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_cellphone</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">手机号码</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_email</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">邮箱地址</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_join_date</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">入职时间</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_introduce</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">自我介绍</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482391415
+}
+</code></pre>
+<h3 id="-">查看讲师</h3>
+<blockquote>
+<p>查看讲师详细信息，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/view">http://api.botue.com/v6/teacher/view</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;tc_id&quot;: 8,
+    &quot;tc_name&quot;: &quot;前端学院&quot;,
+    &quot;tc_roster&quot;: &quot;攻城狮&quot;,
+    &quot;tc_pass&quot;: &quot;c33367701511b4f6020ec61ded352059&quot;,
+    &quot;tc_status&quot;: 0,
+    &quot;tc_birthday&quot;: &quot;1990-02-14&quot;,
+    &quot;tc_hometown&quot;: &quot;河北省|保定市|曲阳县&quot;,
+    &quot;tc_avatar&quot;: &quot;http://static.botue.com/images/avatar/5861fd014b193.jpg&quot;,
+    &quot;tc_gender&quot;: 0,
+    &quot;tc_cellphone&quot;: &quot;13666668886&quot;,
+    &quot;tc_email&quot;: &quot;web@itcast.cn&quot;,
+    &quot;tc_join_date&quot;: &quot;2016-07-07&quot;,
+    &quot;tc_introduce&quot;: &quot;&lt;p&gt;前端工程师的职责是制作标准优化的代码，并增加交互动态功能，开发JavaScript以及Flash模块，同时结合后台开发技术模拟整体效果，进行丰富互联网的Web开发，致力于通过技术改善用户体验。&lt;/p&gt;\n\n&lt;p&gt;前端工程师属于IT技术职业的一种，是近5年发展起来的职业，旧的体系将其定义为Web前端工程师，主要的技术包含：HTML、JavaScript、CSS。但IT技术属于变化比较快的领域，最近发生了很大的变革，新的体系下，前端工程师技术又增加了：nodejs、Hybrid App。&lt;/p&gt;\n&quot;
+  },
+  &quot;time&quot;: 1482909980
+}
+</code></pre>
+<h3 id="-">注销/启用讲师</h3>
+<blockquote>
+<p>注销或启用讲师，需要管理员权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/handle">http://api.botue.com/v6/teacher/handle</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_status</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">状态</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;tc_status&quot;: 1
+    },
+  &quot;time&quot;: 1482560649
+}
+</code></pre>
+<h3 id="-">个人资料</h3>
+<blockquote>
+<p>修改或完善个人资料</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/profile">http://api.botue.com/v6/teacher/profile</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;tc_id&quot;: 8,
+    &quot;tc_name&quot;: &quot;前端学院&quot;,
+    &quot;tc_roster&quot;: &quot;攻城狮&quot;,
+    &quot;tc_birthday&quot;: &quot;1990-02-14&quot;,
+    &quot;tc_province&quot;: &quot;130000&quot;,
+    &quot;tc_city&quot;: &quot;130600&quot;,
+    &quot;tc_district&quot;: &quot;130634&quot;,
+    &quot;tc_hometown&quot;: &quot;河北省|保定市|曲阳县&quot;,
+    &quot;tc_avatar&quot;: &quot;http://static.botue.com/images/avatar/58613845e749c.jpg&quot;,
+    &quot;tc_gender&quot;: 0,
+    &quot;tc_cellphone&quot;: &quot;13666668888&quot;,
+    &quot;tc_email&quot;: &quot;web@itcast.cn&quot;,
+    &quot;tc_join_date&quot;: &quot;2016-07-07&quot;,
+    &quot;tc_introduce&quot;: &quot;&lt;p&gt;前端工程师的职责是制作标准优化的代码，并增加交互动态功能，开发JavaScript以及Flash模块，同时结合后台开发技术模拟整体效果，进行丰富互联网的Web开发，致力于通过技术改善用户体验。&lt;/p&gt;\n\n&lt;p&gt;前端工程师属于IT技术职业的一种，是近5年发展起来的职业，旧的体系将其定义为Web前端工程师，主要的技术包含：HTML、JavaScript、CSS。但IT技术属于变化比较快的领域，最近发生了很大的变革，新的体系下，前端工程师技术又增加了：nodejs、Hybrid App。&lt;/p&gt;\n&quot;
+  },
+  &quot;time&quot;: 1482766412
+}
+</code></pre>
+<h3 id="-">上传头像</h3>
+<blockquote>
+<p>用户上传自定义头像</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/uploader/avatar">http://api.botue.com/v6/uploader/avatar</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 multipart/form-data</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_avatar</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">stream</td>
+<td style="text-align:left">图片格式</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;path&quot;: &quot;http://static.botue.com/images/avatar/58613cba34760.jpg&quot;
+  }
+  &quot;time&quot;: 1482767547
+}
+</code></pre>
+<h3 id="-">修改密码</h3>
+<blockquote>
+<p>修改讲师登录密码</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/teacher/repass">http://api.botue.com/v6/teacher/repass</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tc_pass</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">原密码</td>
+</tr>
+<tr>
+<td style="text-align:left">tc_new_pass</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">新密码</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482395042
+}
+</code></pre>
+<h2 id="-">分类管理</h2>
+<h3 id="-">顶级分类</h3>
+<blockquote>
+<p>获取顶级课程分类</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category/top">http://api.botue.com/v6/category/top</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: [
+    {
+      &quot;cg_id&quot;: 1,
+      &quot;cg_name&quot;: &quot;前端开发&quot;
+    },
+    {
+      &quot;cg_id&quot;: 2,
+      &quot;cg_name&quot;: &quot;后端开发&quot;
+    },
+    {
+      &quot;cg_id&quot;: 3,
+      &quot;cg_name&quot;: &quot;数据库&quot;
+    },
+    {
+      &quot;cg_id&quot;: 4,
+      &quot;cg_name&quot;: &quot;视觉设计&quot;
+    },
+    {
+      &quot;cg_id&quot;: 15,
+      &quot;cg_name&quot;: &quot;移动开发&quot;
+    },
+    {
+      &quot;cg_id&quot;: 16,
+      &quot;cg_name&quot;: &quot;云计算&amp;大数据&quot;
+    },
+    {
+      &quot;cg_id&quot;: 17,
+      &quot;cg_name&quot;: &quot;运维&amp;测试&quot;
+    }
+  ],
+  &quot;time&quot;: 1482913594
+}
+</code></pre>
+<h3 id="-">子级分类</h3>
+<blockquote>
+<p>查询子分类</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category/child">http://api.botue.com/v6/category/child</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cg_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">顶级分类id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: [
+    {
+      &quot;cg_id&quot;: 5,
+      &quot;cg_name&quot;: &quot;HTML/CSS&quot;
+    },
+    {
+      &quot;cg_id&quot;: 6,
+      &quot;cg_name&quot;: &quot;Javascript&quot;
+    },
+    {
+      &quot;cg_id&quot;: 7,
+      &quot;cg_name&quot;: &quot;Mobile&quot;
+    },
+    {
+      &quot;cg_id&quot;: 24,
+      &quot;cg_name&quot;: &quot;AngularJS&quot;
+    },
+    {
+      &quot;cg_id&quot;: 25,
+      &quot;cg_name&quot;: &quot;Vue&quot;
+    }
+  ],
+  &quot;time&quot;: 1483665033
+}
+</code></pre>
+<h3 id="-">添加分类</h3>
+<blockquote>
+<p>添加课程分类，普通权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category/add">http://api.botue.com/v6/category/add</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cg_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">分类名称</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_pid</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">从属分类</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_order</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">排序</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_is_hide</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">是否隐藏 0 显示 1隐藏</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482398093
+}
+</code></pre>
+<h3 id="-">分类列表</h3>
+<blockquote>
+<p>查看所有课程分类，普通权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category">http://api.botue.com/v6/category</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<p>JSON示例</p>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: [
+    {
+      &quot;cg_id&quot;: 1,
+      &quot;cg_pid&quot;: 0,
+      &quot;cg_name&quot;: &quot;前端开发&quot;,
+      &quot;cg_order&quot;: 10,
+      &quot;cg_is_hide&quot;: 0,
+      &quot;cg_update_time&quot;: &quot;2016-11-13 15:36:01&quot;,
+      &quot;level&quot;: 0
+    },
+    {
+      &quot;cg_id&quot;: 5,
+      &quot;cg_pid&quot;: 1,
+      &quot;cg_name&quot;: &quot;HTML/CSS&quot;,
+      &quot;cg_order&quot;: 10,
+      &quot;cg_is_hide&quot;: 0,
+      &quot;cg_update_time&quot;: &quot;2016-11-13 15:36:46&quot;,
+      &quot;level&quot;: 1
+    },
+    {
+      &quot;cg_id&quot;: 6,
+      &quot;cg_pid&quot;: 1,
+      &quot;cg_name&quot;: &quot;Javascript&quot;,
+      &quot;cg_order&quot;: 10,
+      &quot;cg_is_hide&quot;: 0,
+      &quot;cg_update_time&quot;: &quot;2016-11-13 15:36:56&quot;,
+      &quot;level&quot;: 2
+    },
+    {
+      &quot;cg_id&quot;: 7,
+      &quot;cg_pid&quot;: 1,
+      &quot;cg_name&quot;: &quot;Mobile&quot;,
+      &quot;cg_order&quot;: 10,
+      &quot;cg_is_hide&quot;: 0,
+      &quot;cg_update_time&quot;: &quot;2016-11-13 15:37:07&quot;,
+      &quot;level&quot;: 3
+    }
+  ]
+}
+</code></pre>
+<h3 id="-">编辑分类</h3>
+<blockquote>
+<p>编辑课程分类，普通权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category/edit">http://api.botue.com/v6/category/edit</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cg_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">分类id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cg_id&quot;: 6,
+    &quot;cg_pid&quot;: 1,
+    &quot;cg_name&quot;: &quot;Javascript&quot;,
+    &quot;cg_order&quot;: 10,
+    &quot;cg_is_hide&quot;: 0,
+    &quot;top&quot;: [
+      {
+        &quot;cg_id&quot;: 1,
+        &quot;cg_name&quot;: &quot;前端开发&quot;
+      },
+      {
+        &quot;cg_id&quot;: 2,
+        &quot;cg_name&quot;: &quot;后端开发&quot;
+      },
+      {
+        &quot;cg_id&quot;: 3,
+        &quot;cg_name&quot;: &quot;数据库&quot;
+      },
+      {
+        &quot;cg_id&quot;: 4,
+        &quot;cg_name&quot;: &quot;视觉设计&quot;
+      },
+      {
+        &quot;cg_id&quot;: 15,
+        &quot;cg_name&quot;: &quot;移动开发&quot;
+      },
+      {
+        &quot;cg_id&quot;: 16,
+        &quot;cg_name&quot;: &quot;云计算&amp;大数据&quot;
+      },
+      {
+        &quot;cg_id&quot;: 17,
+        &quot;cg_name&quot;: &quot;运维&amp;测试&quot;
+      }
+    ]
+  },
+  &quot;time&quot;: 1482914596
+}
+</code></pre>
+<h3 id="-">修改分类</h3>
+<blockquote>
+<p>修改课程分类，普通权限</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/category/modify">http://api.botue.com/v6/category/modify</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cg_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">分类id</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">分类名称</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_pid</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">从属分类</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_order</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">排序</td>
+</tr>
+<tr>
+<td style="text-align:left">cg_is_hide</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">是否隐藏 0 显示 1隐藏</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;time&quot;: 1482930691
+}
+</code></pre>
+<h2 id="-">课程管理</h2>
+<h3 id="-">创建课程</h3>
+<blockquote>
+<p>添加课程之课程名称</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/create">http://api.botue.com/v6/course/create</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课程名称</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: &quot;17&quot;
+  },
+  &quot;time&quot;: 1483323950
+}
+</code></pre>
+<h3 id="-">课程基本信息</h3>
+<blockquote>
+<p>添加/编辑课程时要获取的基本信息</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/basic">http://api.botue.com/v6/course/basic</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: 1,
+    &quot;cs_cg_id&quot;: 5,
+    &quot;cs_tc_id&quot;: 2,
+    &quot;cs_name&quot;: &quot;HTML5&quot;,
+    &quot;tc_name&quot;: &quot;李清照&quot;,
+    &quot;cs_brief&quot;: &quot;&lt;p&gt;最精彩的网页布局教程&lt;/p&gt;\n&quot;,
+    &quot;cs_tags&quot;: &quot;HTML&quot;,
+    &quot;cs_cover&quot;: &quot;http://static.botue.com/images/cover/half.jpg?x-oss-process=image/crop,x_100,y_50,w_500,h_250&quot;,
+    &quot;cs_cg_pid&quot;: 1,
+    &quot;teacher&quot;: [
+      {
+        &quot;tc_id&quot;: 2,
+        &quot;tc_name&quot;: &quot;李清照&quot;
+      },
+      {
+        &quot;tc_id&quot;: 8,
+        &quot;tc_name&quot;: &quot;前端学院&quot;
+      },
+      {
+        &quot;tc_id&quot;: 9,
+        &quot;tc_name&quot;: &quot;令狐冲&quot;
+      },
+      {
+        &quot;tc_id&quot;: 10,
+        &quot;tc_name&quot;: &quot;张无忌&quot;
+      },
+      {
+        &quot;tc_id&quot;: 16,
+        &quot;tc_name&quot;: &quot;风清杨&quot;
+      }
+    ],
+    &quot;category&quot;: {
+      &quot;top&quot;: [
+        {
+          &quot;cg_id&quot;: 1,
+          &quot;cg_name&quot;: &quot;前端开发&quot;
+        },
+        {
+          &quot;cg_id&quot;: 2,
+          &quot;cg_name&quot;: &quot;后端开发&quot;
+        },
+        {
+          &quot;cg_id&quot;: 3,
+          &quot;cg_name&quot;: &quot;数据库&quot;
+        },
+        {
+          &quot;cg_id&quot;: 4,
+          &quot;cg_name&quot;: &quot;视觉设计&quot;
+        },
+        {
+          &quot;cg_id&quot;: 15,
+          &quot;cg_name&quot;: &quot;移动开发&quot;
+        },
+        {
+          &quot;cg_id&quot;: 16,
+          &quot;cg_name&quot;: &quot;云计算&amp;大数据&quot;
+        },
+        {
+          &quot;cg_id&quot;: 17,
+          &quot;cg_name&quot;: &quot;运维&amp;测试&quot;
+        }
+      ],
+      &quot;childs&quot;: [
+        {
+          &quot;cg_id&quot;: 5,
+          &quot;cg_pid&quot;: 1,
+          &quot;cg_name&quot;: &quot;HTML/CSS&quot;
+        },
+        {
+          &quot;cg_id&quot;: 6,
+          &quot;cg_pid&quot;: 1,
+          &quot;cg_name&quot;: &quot;Javascript&quot;
+        },
+        {
+          &quot;cg_id&quot;: 7,
+          &quot;cg_pid&quot;: 1,
+          &quot;cg_name&quot;: &quot;Mobile&quot;
+        }
+      ]
+    }
+  },
+  &quot;time&quot;: 1483321817
+}
+</code></pre>
+<h3 id="-">更新基本信息</h3>
+<blockquote>
+<p>更新课程基本信息</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/update/basic">http://api.botue.com/v6/course/update/basic</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课程名称</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_brief</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课程描述</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_tc_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">讲师id</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_cg_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">分类id</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_tags</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课程标签</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: &quot;14&quot;
+  },
+  &quot;time&quot;: 1483324805
+}
+</code></pre>
+<h3 id="-">课程图片</h3>
+<blockquote>
+<p>添加/编辑课程封面</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/picture">http://api.botue.com/v6/course/picture</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: 1,
+    &quot;cs_name&quot;: &quot;AngularJS&quot;,
+    &quot;tc_name&quot;: &quot;李清照&quot;,
+    &quot;cs_cover&quot;: &quot;http://static.botue.com/images/cover/586a53f784601.jpg?x-oss-process=image/crop,x_0,y_20,w_512,h_256&quot;,
+    &quot;cs_cover_original&quot;: &quot;http://static.botue.com/images/cover/586a53f784601.jpg&quot;
+  },
+  &quot;time&quot;: 1483364755
+}
+</code></pre>
+<h3 id="-">上传封面图</h3>
+<blockquote>
+<p>上传课程封面</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/uploader/cover">http://api.botue.com/v6/uploader/cover</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+<tr>
+<td style="text-align:left">cs_cover_original</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">stream</td>
+<td style="text-align:left">课程图片</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;filename&quot;: &quot;586a5c7659052.jpg&quot;,
+    &quot;path&quot;: &quot;http://static.botue.com/images/cover/586a5c7659052.jpg&quot;
+  },
+  &quot;time&quot;: 1483365496
+}
+</code></pre>
+<h3 id="-">图片裁切</h3>
+<blockquote>
+<p>课程封面图裁切</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/update/picture">http://api.botue.com/v6/course/update/picture</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">y</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">w 宽度</td>
+</tr>
+<tr>
+<td style="text-align:left">h</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">h 高度</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: 1
+  },
+  &quot;time&quot;: 1483364755
+}
+</code></pre>
+<h3 id="-">课时管理</h3>
+<blockquote>
+<p>为课程添加/编辑课时</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/lesson">http://api.botue.com/v6/course/lesson</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课程id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;cs_id&quot;: 1,
+    &quot;cs_name&quot;: &quot;CSS&quot;,
+    &quot;tc_name&quot;: &quot;李清照&quot;,
+    &quot;cs_cover&quot;: &quot;http://static.botue.com/images/cover/586a53f784601.jpg?x-oss-process=image/crop,x_0,y_39,w_512,h_256&quot;,
+    &quot;lessons&quot;: [
+      {
+        &quot;ct_id&quot;: 1,
+        &quot;ct_name&quot;: &quot;介绍&quot;,
+        &quot;ct_video_duration&quot;: &quot;08:12&quot;
+      },
+      {
+        &quot;ct_id&quot;: 2,
+        &quot;ct_name&quot;: &quot;定位&quot;,
+        &quot;ct_video_duration&quot;: &quot;08:14&quot;
+      }
+    ]
+  },
+  &quot;time&quot;: 1483672570
+}
+</code></pre>
+<h3 id="-">添加课时</h3>
+<blockquote>
+<p>新增课时</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/chapter/add">http://api.botue.com/v6/course/chapter/add</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ct_cs_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课时所属课程id</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课时名称</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_brief</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课时介绍</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_is_free</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">是否免费 0 否 1 是</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_video</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">视频地址</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_minutes</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">视频时长</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_seconds</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">视频时长</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_recommend_duration</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">推荐学习时长</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  code: 200,
+  msg: &quot;OK&quot;,
+  result: &quot;5&quot;,
+  time: 1483685459
+}
+</code></pre>
+<h3 id="-">编辑课时</h3>
+<blockquote>
+<p>编辑课时</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/chapter/edit">http://api.botue.com/v6/course/chapter/edit</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ct_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课时id</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: {
+    &quot;ct_id&quot;: 1,
+    &quot;ct_cs_id&quot;: 1,
+    &quot;ct_name&quot;: &quot;介绍&quot;,
+    &quot;ct_brief&quot;: &quot;层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。&quot;,
+    &quot;ct_is_free&quot;: 1,
+    &quot;ct_video&quot;: &quot;http://www.youku.com&quot;,
+    &quot;ct_recommend_duration&quot;: &quot;0.5&quot;,
+    &quot;ct_minutes&quot;: &quot;08&quot;,
+    &quot;ct_seconds&quot;: &quot;12&quot;
+  },
+  &quot;time&quot;: 1483684058
+}
+</code></pre>
+<h3 id="-">修改课时</h3>
+<blockquote>
+<p>修改课时信息</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course/chapter/modify">http://api.botue.com/v6/course/chapter/modify</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 POST</li>
+<li>支持格式 FormData</li>
+<li>请求参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">必填</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ct_id</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课时id</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_cs_id</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">课时所属课程id</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_name</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课时名称</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_brief</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">课时介绍</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_is_free</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">是否免费 0 否 1 是</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_video</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">视频地址</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_minutes</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">视频时长</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_seconds</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">视频时长</td>
+</tr>
+<tr>
+<td style="text-align:left">ct_recommend_duration</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">number</td>
+<td style="text-align:left">推荐学习时长</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  code: 200,
+  msg: &quot;OK&quot;,
+  time: 1483686203
+}
+</code></pre>
+<h3 id="-">课程列表</h3>
+<blockquote>
+<p>查看所有课程</p>
+</blockquote>
+<h4 id="-">地址</h4>
+<p><a href="http://api.botue.com/v6/course">http://api.botue.com/v6/course</a></p>
+<h4 id="-">请求</h4>
+<ul>
+<li>请求方式 GET</li>
+<li>支持格式 queryString</li>
+<li>请求参数 无</li>
+</ul>
+<h4 id="-">响应</h4>
+<ul>
+<li>数据格式 JSON</li>
+<li>数据示例</li>
+</ul>
+<pre><code class="lang-json">{
+  &quot;code&quot;: 200,
+  &quot;msg&quot;: &quot;OK&quot;,
+  &quot;result&quot;: [
+    {
+      &quot;cs_id&quot;: 1,
+      &quot;cs_name&quot;: &quot;CSS&quot;,
+      &quot;cs_cover&quot;: &quot;http://static.botue.com/images/cover/586a53f784601.jpg?x-oss-process=image/crop,x_0,y_39,w_512,h_256&quot;,
+      &quot;tc_name&quot;: &quot;李清照&quot;,
+      &quot;cg_name&quot;: &quot;HTML/CSS&quot;
+    },
+    {
+      &quot;cs_id&quot;: 2,
+      &quot;cs_name&quot;: &quot;移动Web&quot;,
+      &quot;cs_cover&quot;: &quot;http://static.botue.com/images/cover/586a5c7659052.jpg?x-oss-process=image/crop,x_13,y_0,w_699,h_350&quot;,
+      &quot;tc_name&quot;: &quot;风清扬&quot;,
+      &quot;cg_name&quot;: &quot;HTML/CSS&quot;
+    }
+  ],
+  &quot;time&quot;: 1483711927
+}
+</code></pre>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
