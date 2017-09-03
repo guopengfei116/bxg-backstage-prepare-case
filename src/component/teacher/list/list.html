@@ -1,0 +1,126 @@
+<!-- 侧边栏 -->
+<ngl-aside></ngl-aside>
+<!-- 主体 -->
+<div class="main">
+    <div class="container-fluid">
+        <!-- 头部 -->
+        <ngl-header></ngl-header>
+        <!-- 讲师列表 -->
+        <div class="body teacher-list">
+            <!-- 面包屑 -->
+            <ol class="breadcrumb">
+                <li><a href="javascript:;">讲师管理</a></li>
+                <li class="active">讲师列表</li>
+            </ol>
+            <div class="page-title">
+                <a href="./add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <form action="" class="form-inline">
+                    <select name="" class="form-control input-sm">
+                        <option value="">按年龄</option>
+                    </select>
+                    <select name="" class="form-control input-sm">
+                        <option value="">按性别</option>
+                    </select>
+                    <select name="" class="form-control input-sm">
+                        <option value="">按地区</option>
+                    </select>
+                    <select name="" class="form-control input-sm">
+                        <option value="">按日期</option>
+                    </select>
+                    <button type="button" class="btn btn-success btn-sm">筛选</button>
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control input-sm" ng-model="searchKey">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success btn-sm">搜索</button>
+                        </span>
+                    </div>
+                </form>
+              </div>
+              <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                      <tr>
+                          <th>编号</th>
+                          <th>姓名</th>
+                          <th>昵称</th>
+                          <th>出生日期</th>
+                          <th>性别</th>
+                          <th>手机号码</th>
+                          <th>操作</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="(i, item) in list | filter:{ tc_name: searchKey } track by item.tc_id">
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ item.tc_name }}</td>
+                          <td>{{ item.tc_roster }}</td>
+                          <td>{{ item.tc_birthday }}</td>
+                          <td>{{ item.tc_gender == '0'? '男': '女' }}</td>
+                          <td>{{ item.cellphone }}</td>
+                          <td>
+                              <a ng-click="teacherView(item.tc_id)" data-toggle="modal" data-target="#teacherModal" class="btn btn-info btn-xs">查 看</a>
+                              <a href="#!/teacher/edit" class="btn btn-info btn-xs">编 辑</a>
+                              <a ng-click="teacherHandle(item)" class="btn btn-warning btn-xs">{{ item.tc_status == 1? '注销': '启用' }}</a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 添加课程 -->
+    <div class="modal fade" id="teacherModal">
+        <div class="modal-dialog" style="width: 750px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="panel-title">讲师信息</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>姓名:</th><td>赵玉川</td>
+                                <th>职位:</th><td colspan="3">讲师</td>
+                                <td rowspan="4" width="128">
+                                    <div class="avatar">
+                                        <img src="./images/default.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>花名:</th><td>麻衣长老</td>
+                                <th>出生日期:</th><td colspan="3">2015-11-13</td>
+                            </tr>
+                            <tr>
+                                <th>性别:</th><td>男</td>
+                                <th>出生日期:</th><td colspan="3">1985-05-25</td>
+                            </tr>
+                            <tr>
+                                <th>手机号码:</th><td colspan="2">13051524959</td>
+                                <th>邮箱:</th><td colspan="2">zhaoyuchuan@itcast.cn</td>
+                            </tr>
+                            <tr>
+                                <th>籍贯:</th><td colspan="6">河北省 保定市 曲阳县</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="introduce">
+                                        <p>豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。</p>
+                                        <p>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得仙人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，列冈峦之体势。</p>
+                                        <p>披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰迷津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
