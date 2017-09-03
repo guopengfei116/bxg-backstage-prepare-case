@@ -2,11 +2,17 @@ angular.module('app', [
   // 第三方模块
   'ngRoute', 
 
+  // 常量
+  'constant',
+
   // provider配置
   'config',
 
   // 组件
-  'component'
+  'component',
+
+  // 服务
+  'service'
 ])
 
   // angular在DOMContentLoaed事件触发时开始内部初始化，
