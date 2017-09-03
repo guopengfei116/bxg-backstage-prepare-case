@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>博学谷</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/src/less/index.css">
+</head>
+<body ng-app="app">
+    <main ng-view></main>
+    
+    <!-- 第三方框架 -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-route/angular-route.js"></script>
+
+    <!-- 主模块 -->
+    <script src="/src/js/main.js"></script>
+
+    <!-- component -->
+    <script src="/src/component/index.js"></script>
+    <script src="/src/component/common/aside/aside.js"></script>
+    <script src="/src/component/common/header/header.js"></script>
+    <script src="/src/component/index/index.js"></script>
+    <script src="/src/component/login/login.js"></script>
+    <script src="/src/component/profile/profile.js"></script>
+    <script src="/src/component/repass/repass.js"></script>
+    
+    <!-- provider-config -->
+    <script src="/src/js/config/index.js"></script>
+    <script src="/src/js/config/ng_route.js"></script>
+</body>
+</html>

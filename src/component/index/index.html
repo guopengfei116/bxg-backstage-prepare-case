@@ -1,0 +1,47 @@
+<!-- 侧边栏，如果页面切换时要刷新这里的状态，必须随着页面组件一起重新渲染 -->
+<ngl-aside/>
+<!-- 主体 -->
+<div class="main">
+    <div class="container-fluid">
+        <!-- 头部 -->
+        <ngl-header></ngl-header>
+        <!-- 个人资料 -->
+        <div class="body teacher-profile">
+            <div class="profile">
+                <div class="row survey">
+                    <div class="col-xs-3">
+                        <div class="cell money">
+                            <i class="fa fa-money"></i>
+                            <span>我的收入</span>
+                            <h5>￥11.11</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="cell th">
+                            <i class="fa fa-th"></i>
+                            <span>课程数量</span>
+                            <h5>12</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="cell user">
+                            <i class="fa fa-user"></i>
+                            <span>用户数量</span>
+                            <h5>236</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="cell eye">
+                            <i class="fa fa-eye"></i>
+                            <span>浏览量</span>
+                            <h5>22435</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div id="main" style="width: 600px;height:400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
