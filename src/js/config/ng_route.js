@@ -47,6 +47,26 @@ angular.module('config')
         .when('/category/list', {
             template: '<ngl-cg-list/>'
         })
+        // 添加课程
+        .when('/course/add', {
+            template: '<ngl-cs-add/>'
+        })
+        // 课程编辑1
+        .when('/course/edit1', {
+            template: '<ngl-cs-edit1/>'
+        })
+        // 课程编辑2
+        .when('/course/edit2', {
+            template: '<ngl-cs-edit2/>'
+        })
+        // 课程编辑3
+        .when('/course/edit3', {
+            template: '<ngl-cs-edit3/>'
+        })
+        // 课程列表
+        .when('/course/list', {
+            template: '<ngl-cs-list/>'
+        })
         // 其他
         .otherwise({
             templateUrl: '/src/html/404.html'
