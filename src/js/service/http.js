@@ -4,11 +4,13 @@ angular.module('service')
     'API',
     'util',
     function($http, API, util) {
+      console.log('service-http');
+
       // 成功处理函数
       function successHandler(resp, fn) {
         var data = resp.data;
         if(data && data.code == 200) {
-          fn(data.result);
+          fn(data.result || {});
         }else {
           alert('服务器错误');
         }
