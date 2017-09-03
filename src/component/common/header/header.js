@@ -4,7 +4,22 @@ angular.module('component')
     controller: 'nglHeaderCtrl'
   })
   .controller('nglHeaderCtrl', [
-    function() {
-      console.log('头部');
+    '$scope',
+    '$location',
+    'http',
+    function($scope, $location, http) {
+      console.log('公共头部');
+
+      // 登出功能
+      $scope.logout = function() {
+        http.api('logout', function() {
+          $location.path('/login');
+        });
+      };
+
+      // 监听外界传递过来的logout事件，退出登陆
+      $scope.$on('logout', function() {
+        $scope.logout();
+      });
     }
   ]);

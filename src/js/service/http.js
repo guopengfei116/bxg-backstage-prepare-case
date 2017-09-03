@@ -54,7 +54,7 @@ angular.module('service')
           data = null;
         }
 
-        http[config.method](config.url, data, fn);
+        this[config.method](config.url, data, fn);
       }
     }
   ]);
