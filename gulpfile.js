@@ -7,7 +7,7 @@ var less = require('gulp-less');
 var concat = require('gulp-concat');
 
 /*
- * 合并所有的第三方包
+ * 合并所有的第三方js
  * 一、这些第三方包不经常更新
  *     1.1 打包在一起使用可以充分利用浏览器的缓存
  *     1.2 不必受业务代码频繁更新的影响
@@ -16,15 +16,28 @@ var concat = require('gulp-concat');
  *     2.2 比如bootstrap必须有全局jQuery才可正常运作，而browserify打包jquery后不存在任何全局变量
  *     2.3 再比如art-template，内部检测到module对象后以为是node环境，使用了特殊api导致无法正常运作
  * */
-var libs = [
+var jsLibs = [
   'node_modules/art-template/lib/template-web.js',
   'node_modules/jquery/dist/jquery.js',
   'node_modules/bootsrap/dist/js/bootsrap.js'
 ];
 gulp.task('jsLib', function() {
-  gulp.src(libs)
+  gulp.src(jsLibs)
     .pipe(concat('lib.js'))
     .pipe(gulp.dest('dist/js'));
+});
+
+/*
+ * 合并所有的第三方css
+ * */
+var cssLibs = [
+  'node_modules/bootstrap/dist/css/bootstrap.css',
+  'node_modules/font-awesome/css/font-awesome.css'
+];
+gulp.task('cssLib', function() {
+  gulp.src(cssLibs)
+    .pipe(concat('lib.css'))
+    .pipe(gulp.dest('dist/css'));
 });
 
 // 使用browserify打包js
@@ -55,7 +68,7 @@ gulp.task('less', function() {
 });
 
 // 整体打包与watch
-gulp.task('build', ['jsLib', 'js', 'html', 'less']);
+gulp.task('build', ['jsLib', 'cssLib', 'js', 'html', 'less']);
 gulp.task('default', function() {
   gulp.watch(['src/**/*.js'], function() {
     gulp.run('js');
