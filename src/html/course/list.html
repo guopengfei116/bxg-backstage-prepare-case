@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" href="../../lib/jquery-bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../less/index.css">
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="../../img/default.png">
+            </div>
+            <h4>布头儿</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="../../index.html" class="active">
+                        <i class="fa fa-home"></i>
+                        <span>仪表盘</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../teacher/list.html">
+                        <i class="fa fa-bell"></i>
+                        <span>讲师管理</span>		
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>分类管理</span>
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="../category/add.html">分类添加</a>
+                        </li>
+                        <li>
+                            <a href="../category/list.html">分类列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>课程管理</span>
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="../course/add.html">课程添加</a>
+                        </li>
+                        <li>
+                            <a href="../course/list.html">课程列表</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="./course_edit_step1.html" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="../home/profile.html">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_edit_step1.html">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </nav>          
+            </div>
+            <!-- 客户列表 -->
+            <div class="body course-list">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="./course_edit_step1.html">课程管理</a></li>
+                    <li class="active">课程列表</li>
+                </ol>
+                <div class="courses">
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_1.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">html,div+css视频教程(2014最新,带多个企业级项目实战)</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_2.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">JavaScript 基础</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_3.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">App开发从0到1</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_4.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">Java 从入门到精通</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_1.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">html,div+css视频教程(2014最新,带多个企业级项目实战)</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course">
+                        <div class="pic">
+                            <img src="./uploads/course_3.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <a href="./course_edit_step1.html">App开发从0到1</a>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span>讲师：李鹏周</span>
+                                    <span>类别：前端开发</span>
+                                </li>
+                                <li>
+                                    <span>课时：32</span>
+                                    <span>学员：9823</span>
+                                </li>
+                                <li>
+                                    <span>浏览：11313</span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../lib/jquery/jquery.min.js"></script>
+	<script src="../../js/common.js"></script>
+</body>
+</html>
