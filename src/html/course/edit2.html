@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="../../lib/jquery-bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../../less/index.css">
+    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/font-awesome/css/font-awesome.css">
+    <!--<link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/lib.css">-->
+    <link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/index.css">
 </head>
 <body>
     <!-- 侧边栏 -->
@@ -30,7 +31,7 @@
                 <li>
                     <a href="../teacher/list.html">
                         <i class="fa fa-bell"></i>
-                        <span>讲师管理</span>		
+                        <span>讲师管理</span>
                     </a>
                 </li>
                 <li>
@@ -91,42 +92,74 @@
                             </a>
                         </li>
                     </ul>
-                </nav>          
+                </nav>
             </div>
-            <!-- 修改密码 -->
-            <div class="body">
-                <div class="repass">
-                    <form action="" class="form-horizontal col-xs-offset-2">
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">原密码</label>
-                            <div class="col-xs-4">
-                                <input name="" type="text" class="form-control input-sm">
+            <div class="body course-add">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">课程管理</a></li>
+                    <li class="active">课程添加</li>
+                </ol>
+                <div class="steps">
+                    <!-- 摘要 -->
+                    <div class="brief">
+                        <div class="thumb">
+                            <img src="./uploads/course_1.jpg" alt="">
+                        </div>
+                        <dl class="info">
+                            <dt>Git 指南</dt>
+                            <dd>讲师：李鹏周</dd>
+                            <dd>课时：32</dd>
+                        </dl>
+                    </div>
+                    <!-- 步聚 -->
+                    <ul class="forwards list-unstyled">
+                        <li>
+                            <a href="./course_edit_step1.html" class="done">
+                            <b class="fa fa-check"></b>
+                            基本信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_edit_step2.html" class="active">
+                            <b>2</b>
+                            课程图片
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./course_edit_step3.html">
+                            <b>3</b>
+                            课时管理
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 课程图片 -->
+                    <div class="content">
+                        <!-- 标题 -->
+                        <div class="title">
+                            <h5>课程图片 <small>COURSE PICTURE</small></h5>
+                        </div>
+                        <!-- 上传图片 -->
+                        <div class="picture col-xs-offset-2">
+                            <div class="preview">
+                                <img src="./uploads/course.png" alt="">
+                            </div>
+                            <p class="tips">
+                                可上传jpg, gif, png格式文件, 图片建议尺寸大于300x150，文件大小不能超过2M。
+                            </p>
+                            <div class="col-xs-2">
+                                <a href="./course_edit_step3.html" class="btn btn-success btn-sm">选择图片</a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="javascript:;" class="btn btn-warning btn-sm" disabled>裁切图片</a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">新密码</label>
-                            <div class="col-xs-4">
-                                <input name="" type="password" class="form-control input-sm">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">确认密码</label>
-                            <div class="col-xs-4">
-                                <input name="" type="text" class="form-control input-sm">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-7">
-                                <button type="submit" class="btn btn-success btn-sm pull-right">修 改</button>
-                            </div>                          
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="../../lib/jquery/jquery.min.js"></script>
-	<script src="../../js/common.js"></script>
+    <script src="/boxuegu_case_jquery/dist/js/lib.js"></script>
+    <script src="/boxuegu_case_jquery/dist/js/course/edit2.js"></script>
 </body>
 </html>
