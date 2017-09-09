@@ -1,6 +1,9 @@
 // 退出功能
-$('#logout').on('click', function() {
+$('#btn-logout').on('click', function() {
   $.post('/v6/logout', function(data) {
-    data.code == 200 && (location.href = '/html/home/login.html');
+    if(data.code == 200) {
+      alert('退出成功');
+      location.href = '/dist/html/user/login.html';
+    };
   });
 });
