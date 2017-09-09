@@ -3,148 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/font-awesome/css/font-awesome.css">
-    <!--<link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/lib.css">-->
-    <link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/index.css">
+    <!-- build:style -->
+    <!-- endbuild -->
 </head>
 <body>
-    <!-- 侧边栏 -->
-    <div class="aside">
-        <!-- 个人资料 -->
-        <div class="profile">
-            <!-- 头像 -->
-            <div class="avatar img-circle">
-                <img src="../../img/default.png">
-            </div>
-            <h4>布头儿</h4>
-        </div>
-        <!-- 导航菜单 -->
-        <div class="navs">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="../../index.html" class="active">
-                        <i class="fa fa-home"></i>
-                        <span>仪表盘</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../teacher/list.html">
-                        <i class="fa fa-bell"></i>
-                        <span>讲师管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>分类管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../category/add.html">分类添加</a>
-                        </li>
-                        <li>
-                            <a href="../category/list.html">分类列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>课程管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../course/add.html">课程添加</a>
-                        </li>
-                        <li>
-                            <a href="../course/list.html">课程列表</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <!-- build:aside -->
+    <!-- endbuild -->
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
-            <!-- 头部 -->
-            <div class="header">
-                <nav class="navbar navbar-custom">
-                    <div class="navbar-header">
-                        <a href="javascript:;" class="navbar-brand">
-                            <i class="fa fa-navicon"></i>
-                        </a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="../home/settings.html">
-                                <i class="fa fa-user"></i>
-                                个人中心
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-sign-out"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <!-- build:header -->
+            <!-- endbuild -->
             <div class="body teacher">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
                     <li><a href="javascript:;">讲师管理</a></li>
                     <li class="active">讲师编辑</li>
                 </ol>
-                <div class="teacher-add">
-                    <form action="" class="form-horizontal col-xs-offset-2">
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">姓名</label>
-                            <div class="col-xs-4">
-                                <input name="" type="text" class="form-control input-sm" placeholder="讲师名称">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">入职时间</label>
-                            <div class="col-xs-4">
-                                <input name="" type="text" class="form-control input-sm">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">类型</label>
-                            <div class="col-xs-2">
-                                <select name="" class="form-control input-sm">
-                                    <option value="">讲师</option>
-                                    <option value="">管理员</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">性别</label>
-                            <div class="col-xs-4">
-                                <label class="radio-inline">
-                                    <input name="" type="radio" checked> 男
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="" type="radio"> 女
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-7">
-                                <button type="submit" class="btn btn-success btn-sm pull-right">保 存</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="teacher-edit teacher-add">
+                  <!-- 编辑讲师表单模版的坑 -->
                 </div>
             </div>
         </div>
     </div>
-    <script src="/boxuegu_case_jquery/dist/js/lib.js"></script>
-    <script src="/boxuegu_case_jquery/dist/js/teacher/edit.js"></script>
+
+    <!-- 编辑讲师表单模版 -->
+    <script id="teacher-edit-tpl" type="text/tpl">
+      <form id="teacher-edit-form" action="/v6/teacher/update" method="post" class="form-horizontal col-xs-offset-2">
+            <input type="hidden" name="tc_id" value="{{ tc_id }}" />
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">姓名</label>
+                <div class="col-xs-4">
+                    <input name="tc_name" value="{{ tc_name }}" type="text" class="form-control input-sm" placeholder="讲师名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">入职时间</label>
+                <div class="col-xs-4">
+                    <input id="datepicter" name="tc_join_date" value="{{ tc_join_date }}" type="text" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">类型</label>
+                <div class="col-xs-2">
+                    <select name="tc_type" class="form-control input-sm">
+                        <option value="1" {{ tc_type == 1? 'selected': '' }} >讲师</option>
+                        <option value="0" {{ tc_type != 1? 'selected': '' }}>管理员</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">性别</label>
+                <div class="col-xs-4">
+                    <label class="radio-inline">
+                        <input name="tc_gender" value="0" type="radio" {{ tc_gender == 0? 'checked': '' }}> 男
+                    </label>
+                    <label class="radio-inline">
+                        <input name="tc_gender" value="1"  type="radio" {{ tc_gender != 0? 'checked': '' }}> 女
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-7">
+                    <button type="submit" class="btn btn-success btn-sm pull-right">添加</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <script src="/dist/js/lib.js"></script>
+    <script src="/dist/js/teacher/edit.js"></script>
 </body>
 </html>
