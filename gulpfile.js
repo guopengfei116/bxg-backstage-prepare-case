@@ -4,24 +4,42 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var less = require('gulp-less');
+var cleanCss = require('gulp-clean-css');
 var concat = require('gulp-concat');
+var htmlmin = require('gulp-htmlmin');
+var htmlReplace = require('gulp-html-replace');
 
-// 打包html
+// html处理
 gulp.task('html', function() {
-  gulp.src('src/**/*.html')
+  gulp.src(['src/**/*.html', 'index.html'])
+
+    // 替换公共样式、左侧导航、头部
+    .pipe(htmlReplace({
+      style: gulp.src('src/html/common/style.html'),
+      aside: gulp.src('src/html/common/aside.html'),
+      header: gulp.src('src/html/common/header.html')
+    }))
+
+    // 压缩html
+    .pipe(htmlmin({
+      collapseWhitespace: true, // 去掉空白字符
+      minifyJS: true,//压缩页面JS
+      minifyCSS: true,//压缩页面CSS
+      removeComments: true//清除HTML注释
+    }))
+
     .pipe(gulp.dest('dist'));
 });
 
-// 打包less
+// less处理
 gulp.task('less', function() {
-  gulp.src('src/less/index.less')
-    .pipe(less())
-    .pipe(gulp.dest('dist/css'));
+    gulp.src('src/less/index.less')
+        .pipe(less())
+        .pipe(cleanCss())
+        .pipe(gulp.dest('dist/css'));
 });
 
-/*
- * 合并所有的第三方css
- * */
+// 合并所有的第三方样式为一个css
 var cssLibs = [
   'node_modules/bootstrap/dist/css/bootstrap.css',
   'node_modules/font-awesome/css/font-awesome.css'
@@ -33,7 +51,7 @@ gulp.task('cssLib', function() {
 });
 
 /*
- * 合并所有的第三方js
+ * 合并所有的第三方脚本为一个js
  * 一、这些第三方包不经常更新
  *     1.1 打包在一起使用可以充分利用浏览器的缓存
  *     1.2 不必受业务代码频繁更新的影响
@@ -53,7 +71,15 @@ gulp.task('jsLib', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-// 使用browserify打包js
+/**
+ * 使用browserify打包CommonJS模块：
+ * 1、其中src/js/common目录下的文件不需要打包，因为将来那个页面脚本需要它，require它即可，
+ * 只要require了，就自动打包到了对应的页面脚本。
+ * 2、剩下其他目录的js都要打包，每个js都对应一个html页面，他们是这些页面的入口文件。
+ * 但是browserify不支持通配符写法，我们只能一个一个写。
+ *    一个一个写比较费力，我们这里采用一个循环结构来处理，搞循环结构，
+ * 通常要有一个对象或者数组，我们搞一个存储所有要打包js路径的数组，然后遍历打包。
+ * */
 var jsModules = [
   // 首页
   'src/js/index.js',
@@ -76,7 +102,6 @@ var jsModules = [
   'src/js/course/edit3.js',
   'src/js/course/list.js'
 ];
-
 gulp.task('js', function() {
 
   // 共享配置
@@ -84,33 +109,27 @@ gulp.task('js', function() {
     debug: false  // 生成sourcemap便于调试
   };
 
-  jsModules.forEach(function(module){
+  jsModules.forEach(function(url) {
+      var tempArr = url.split('/'); // url变成['src', 'js', 'user', 'login.js']
+      var moduleName = tempArr.pop(); // 取出最后的文件名，数组变成['src', 'js', 'user']
+      tempArr.shift(); // 取出源代码目录src，数组变成['js', 'user']
 
-    // 取出文件名
-    var pathArr = module.split('/');
-    var fileName = pathArr.pop();
-    var path = module.slice(4, -fileName.length);
-    console.log(fileName, path);
-
-    // broserify打包
-    browserify(module, config).bundle()
-      .pipe(source(fileName))   // 把结果转换为Stream的vinyl对象，还需进一步转换为Buffer的vinyl对象
-      .pipe(buffer()) // 转换后与gulp的src方法返回类型一致，这样就可以继续调用gulp方法与gulp插件了
-      .pipe(gulp.dest('dist/' + path));
+      browserify(url, { debug: true })
+        .bundle() // 打包
+        .pipe(source(moduleName)) // 转为stream构成的vinyl文件对象，文件名称保持不变
+        .pipe(buffer()) // 转为buffer构成的vinyl文件对象，和gulp-src返回结果一致，然后就可以继续调用其他gulp插件了
+        // .pipe(uglify()) // 压缩脚本
+        .pipe(gulp.dest('dist/' + tempArr.join('/'))); // 数组变成'js/user'，也可以url.slice('/src'.length, -moduleName.length)
   });
 
 });
 
-// 整体打包与watch
+// 统一打包的任务
 gulp.task('build', ['jsLib', 'cssLib', 'js', 'html', 'less']);
-gulp.task('default', function() {
-  gulp.watch(['src/**/*.js'], function() {
-    gulp.run('js');
-  });
-  gulp.watch(['src/**/*.html'], function() {
-    gulp.run('html');
-  });
-  gulp.watch(['src/**/*.less'], function() {
-    gulp.run('less');
-  });
+
+// 监听文件变化，自动打包
+gulp.task('default', ['build'], function() {
+  gulp.watch(['src/**/*.js'], ['js']);
+  gulp.watch(['src/**/*.html'], ['html']);
+  gulp.watch(['src/**/*.less'], ['less']);
 });
