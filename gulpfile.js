@@ -64,6 +64,7 @@ var jsLibs = [
   'node_modules/art-template/lib/template-web.js',
   'node_modules/jquery/dist/jquery.js',
   'node_modules/bootsrap/dist/js/bootsrap.js',
+  'node_modules/jquery-form/dist/jquery.form.min.js',
 ];
 gulp.task('jsLib', function() {
   gulp.src(jsLibs)
