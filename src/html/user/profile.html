@@ -67,7 +67,6 @@
               </div>
               <div class="form-group">
                   <label for="" class="col-xs-3 control-label">籍贯</label>
-                  <input type="hidden" name="tc_hometown" id="input-hometown" value="" />
                   <div id="region" class="col-xs-5">
                       <select name="tc_province" id="p" data-id="{{ tc_province }}" class="form-control input-sm">
                           <option value="">请选择省</option>
@@ -101,7 +100,7 @@
               <div class="form-group">
                   <label for="" class="col-xs-3 control-label">个人介绍</label>
                   <div class="col-xs-5 ckeditor">
-                      <textarea id="ckeditor" name="tc_introduce" rows="15" class="form-control input-sm">{{ tc_introduce }}</textarea>
+                      <textarea id="ckeditor" name="tc_introduce" rows="15" class="form-control input-sm">{{@ tc_introduce }}</textarea>
                   </div>
               </div>
               <div class="form-group">
