@@ -3,152 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/font-awesome/css/font-awesome.css">
-    <!--<link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/lib.css">-->
-    <link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/index.css">
+    <!-- build:style -->
+    <!-- endbuild -->
 </head>
 <body>
-    <!-- 侧边栏 -->
-    <div class="aside">
-        <!-- 个人资料 -->
-        <div class="profile">
-            <!-- 头像 -->
-            <div class="avatar img-circle">
-                <img src="../../img/default.png">
-            </div>
-            <h4>布头儿</h4>
-        </div>
-        <!-- 导航菜单 -->
-        <div class="navs">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="../../index.html" class="active">
-                        <i class="fa fa-home"></i>
-                        <span>仪表盘</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../teacher/list.html">
-                        <i class="fa fa-bell"></i>
-                        <span>讲师管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>分类管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../category/add.html">分类添加</a>
-                        </li>
-                        <li>
-                            <a href="../category/list.html">分类列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>课程管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../course/add.html">课程添加</a>
-                        </li>
-                        <li>
-                            <a href="../course/list.html">课程列表</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <!-- build:aside -->
+    <!-- endbuild -->
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
-            <!-- 头部 -->
-            <div class="header">
-                <nav class="navbar navbar-custom">
-                    <div class="navbar-header">
-                        <a href="javascript:;" class="navbar-brand">
-                            <i class="fa fa-navicon"></i>
-                        </a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="../home/profile.html">
-                                <i class="fa fa-user"></i>
-                                个人中心
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-sign-out"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <!-- build:header -->
+            <!-- endbuild -->
             <div class="body course-category">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
                     <li><a href="javascript:;">课程管理</a></li>
                     <li class="active">课程分类</li>
                 </ol>
-                <div class="category-add">
-                    <form action="" class="form-horizontal">
-                        <div class="form-group">
-                            <label for="" class="col-xs-4 control-label">名称</label>
-                            <div class="col-xs-3">
-                                <input name="" type="text" class="form-control input-sm" placeholder="填写分类名称">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-4 control-label">级别</label>
-                            <div class="col-xs-2">
-                                <select name="" class="form-control input-sm">
-                                    <option value="">顶级分类</option>
-                                    <option value="">前端开发</option>
-                                    <option value="">后端开发</option>
-                                    <option value="">数据库</option>
-                                    <option value="">云计算&大数据</option>
-                                    <option value="">视觉设计</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-4 control-label">排序</label>
-                            <div class="col-xs-1">
-                                <input name="" type="text" class="form-control input-sm" value="10">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-xs-4 control-label">是否显示</label>
-                            <div class="col-xs-3">
-                                <label class="checkbox-inline">
-                                    <input name="1" type="radio" checked> 是
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input name="1" type="radio"> 否
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-8">
-                                <button type="submit" class="btn btn-success btn-sm pull-right">保 存</button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="category-edit category-add">
+                  <!-- 编辑学科分类模版的坑-->
                 </div>
             </div>
         </div>
     </div>
-    <script src="/boxuegu_case_jquery/dist/js/lib.js"></script>
-    <script src="/boxuegu_case_jquery/dist/js/category/edit.js"></script>
+
+    <!-- 编辑学科分类模版-->
+    <script id="course-category-edit-tpl" type="text/tpl">
+      <form id="course-category-edit-form" action="/v6/category/modify" method="post" class="form-horizontal">
+            <input type="hidden" name="cg_id" value="{{ cg_id }}">
+            <div class="form-group">
+                <label for="" class="col-xs-4 control-label">名称</label>
+                <div class="col-xs-3">
+                    <input type="text" name="cg_name" value="{{ cg_name }}" class="form-control input-sm" placeholder="填写分类名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-4 control-label">从属分类</label>
+                <div class="col-xs-2">
+                    <select name="cg_pid" class="form-control input-sm">
+                        <option value="0" {{ cg_pid == 0? "selected": "" }}>无</option>
+                        {{ each top category i }}
+                        <!-- 判断当前编辑的分类pid是否等于当前遍历到的顶级分类id，
+                        如果是那么证明这个顶级分类是当前分类的父级，选中它 -->
+                        <option value="{{ category.cg_id }}" {{ cg_pid == category.cg_id? "selected": "" }}>
+                          {{ category.cg_name }}
+                        </option>
+                        {{ /each }}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-4 control-label">排序</label>
+                <div class="col-xs-1">
+                    <input type="text" name="cg_order" value="{{ cg_order }}" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-4 control-label">是否显示</label>
+                <div class="col-xs-3">
+                    <label class="checkbox-inline">
+                        <input type="radio" name="cg_is_hide" value="0" {{ cg_is_hide == 0? 'checked': '' }}> 是
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" name="cg_is_hide" value="1" {{ cg_is_hide == 0? '': 'checked' }}> 否
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <button type="submit" class="btn btn-success btn-sm pull-right">保存</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <script src="/dist/js/lib.js"></script>
+    <script src="/dist/js/category/edit.js"></script>
 </body>
 </html>
