@@ -414,7 +414,7 @@ a:focus {
 .main .course-add .brief .thumb {
   width: 240px;
   height: 120px;
-  background-image: url(../images/course.png);
+  /*background-image: url(../images/course.png);*/
   background-size: contain;
   float: left;
   position: relative;
