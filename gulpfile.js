@@ -17,7 +17,9 @@ gulp.task('html', function() {
     .pipe(htmlReplace({
       style: gulp.src('src/html/common/style.html'),
       aside: gulp.src('src/html/common/aside.html'),
-      header: gulp.src('src/html/common/header.html')
+      header: gulp.src('src/html/common/header.html'),
+      courseAside: gulp.src('src/html/common/course/aside.html'),
+      courseHeader: gulp.src('src/html/common/course/header.html'),
     }))
 
     // 压缩html

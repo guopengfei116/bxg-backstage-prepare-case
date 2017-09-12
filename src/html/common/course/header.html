@@ -1,0 +1,13 @@
+<!-- 课程编辑内嵌头部 -->
+<div class="brief">
+    <div class="thumb">
+        <img class='cover-img' src="{{ cs_cover || '/public/img/course.png' }}">
+    </div>
+    <dl class="info">
+        <dt>{{ cs_name }}</dt>
+        <dd>讲师：{{ tc_name }}</dd>
+        {{ if lessons }}
+        <dd>课时：{{ lessons.length }}</dd>
+        {{ /if }}
+    </dl>
+</div>
