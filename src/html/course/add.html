@@ -3,97 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/boxuegu_case_jquery/node_modules/font-awesome/css/font-awesome.css">
-    <!--<link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/lib.css">-->
-    <link rel="stylesheet" href="/boxuegu_case_jquery/dist/css/index.css">
+    <!-- build:style -->
+    <!-- endbuild -->
 </head>
 <body>
-    <!-- 侧边栏 -->
-    <div class="aside">
-        <!-- 个人资料 -->
-        <div class="profile">
-            <!-- 头像 -->
-            <div class="avatar img-circle">
-                <img src="../../img/default.png">
-            </div>
-            <h4>布头儿</h4>
-        </div>
-        <!-- 导航菜单 -->
-        <div class="navs">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="../../index.html" class="active">
-                        <i class="fa fa-home"></i>
-                        <span>仪表盘</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../teacher/list.html">
-                        <i class="fa fa-bell"></i>
-                        <span>讲师管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>分类管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../category/add.html">分类添加</a>
-                        </li>
-                        <li>
-                            <a href="../category/list.html">分类列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-cog"></i>
-                        <span>课程管理</span>
-                        <i class="arrow fa fa-angle-right"></i>
-                    </a>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="../course/add.html">课程添加</a>
-                        </li>
-                        <li>
-                            <a href="../course/list.html">课程列表</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <!-- build:aside -->
+    <!-- endbuild -->
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
-            <!-- 头部 -->
-            <div class="header">
-                <nav class="navbar navbar-custom">
-                    <div class="navbar-header">
-                        <a href="javascript:;" class="navbar-brand">
-                            <i class="fa fa-navicon"></i>
-                        </a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="../home/profile.html">
-                                <i class="fa fa-user"></i>
-                                个人中心
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-sign-out"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <!-- build:header -->
+            <!-- endbuild -->
             <div class="body course-add">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
@@ -104,15 +24,15 @@
                     <div class="title">
                         <h5>创建课程 <small>CREATE A COURSE</small></h5>
                     </div>
-                    <form action="" class="form-horizontal col-xs-7">
+                    <form id="course-add-form" action="/v6/course/create" method="post" class="form-horizontal col-xs-7">
                         <div class="form-group">
                             <label for="" class="col-xs-2 control-label">课程标题</label>
                             <div class="col-xs-9">
-                                <input name="" type="text" class="form-control input-sm" placeholder="请填写课程标题">
+                                <input name="cs_name" type="text" class="form-control input-sm" placeholder="请填写课程标题">
                             </div>
                         </div>
                         <div class="col-xs-11">
-                            <a href="./course_edit_step1.html" class="btn btn-success btn-sm pull-right">创建课程</a>
+                            <button type="submit" class="btn btn-success btn-sm pull-right">创建课程</button>
                         </div>
                     </form>
                     <div class="extra col-xs-3">
@@ -123,7 +43,7 @@
             </div>
         </div>
     </div>
-    <script src="/boxuegu_case_jquery/dist/js/lib.js"></script>
-    <script src="/boxuegu_case_jquery/dist/js/course/add.js"></script>
+    <script src="/dist/js/lib.js"></script>
+    <script src="/dist/js/course/add.js"></script>
 </body>
 </html>
